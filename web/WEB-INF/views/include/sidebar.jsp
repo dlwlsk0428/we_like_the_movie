@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="${root}/resources/css/common.css">
 <div id="sidebar" class="">
     <div class="inner">
 
@@ -22,7 +23,7 @@
                 <h2>Menu</h2>
             </header>
             <ul>
-                <li><a href="${root}">Homepage</a></li>
+                <li><a href="${root}/">Homepage</a></li>
                 <li><a href="${root}/about/introduce">Introduce</a></li>
                 <li><a href="elements.jsp">Recommend OTTs</a></li>
                 <li>
@@ -45,10 +46,14 @@
         <%--        </footer>--%>
 
     </div>
-    <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a><a
-        href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a><a
-        href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a><a
-        href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a><a
-        href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a><a
-        href="${root}#sidebar" class="toggle">Toggle</a></div>
+
+<%--    <a href="${root}/index.jsp#sidebar" class="toggle">Toggle</a>--%>
+    
+    <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
+    <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
+    <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
+    <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
+    <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
+    <a href="${root}#sidebar" class="toggle">Toggle</a>
+</div>
 

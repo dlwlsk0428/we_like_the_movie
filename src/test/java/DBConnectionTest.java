@@ -6,8 +6,8 @@ public class DBConnectionTest {
     public static void main(String[] args) {
         Connection con = null;
 
-        String server = "101.101.208.217"; // MySQL 서버 주소
-        String database = "project"; // MySQL DATABASE 이름
+        String server = "101.101.209.21"; // MySQL 서버 주소
+        String database = "JDBC"; // MySQL DATABASE 이름
         String user_name = "root"; //  MySQL 서버 아이디
         String password = "hongik16"; // MySQL 서버 비밀번호
 

@@ -28,7 +28,9 @@
             <section id="banner">
                 <div class="content">
                     <header>
-                        <h1>Hi, We recommend you a best choice!<br>
+                        <h1>
+                            <strong>${userName}</strong> <br>
+                            Hi, We recommend you a best choice!<br>
                             by Your Own star data</h1>
 
                     </header>
