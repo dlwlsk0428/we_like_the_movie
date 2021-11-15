@@ -36,7 +36,7 @@
                         <input type="text" name="search_movie_actor" id="movie_actor" placeholder="Search">
                     </form>
                     <ul class="actions">
-                        <li><a href="search_movie_results" class="button primary icon solid fa-search">Search</a>
+                        <li><a href="search_movie_results?pg=1" class="button primary icon solid fa-search">Search</a>
                         </li>
                     </ul>
                 </section>

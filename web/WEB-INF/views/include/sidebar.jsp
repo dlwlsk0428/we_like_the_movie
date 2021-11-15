@@ -25,7 +25,7 @@
             <ul>
                 <li><a href="${root}/">Homepage</a></li>
                 <li><a href="${root}/about/introduce">Introduce</a></li>
-                <li><a href="elements.jsp">Recommend OTTs</a></li>
+                <li><a href="${root}/recommend/recommendOTTs">Recommend OTTs</a></li>
                 <li>
                     <span class="opener active">Search</span>
                     <ul>
@@ -36,7 +36,9 @@
                     </ul>
                 </li>
                 <li><a href="${root}/group/grouplist">Group</a></li>
-                <li><a href="${root}/account/member">Member</a></li>
+                <c:if test="${!empty userinfo}">
+                    <li><a href="${root}/account/mypage">My Page</a></li>
+                </c:if>
             </ul>
         </nav>
 
@@ -47,8 +49,8 @@
 
     </div>
 
-<%--    <a href="${root}/index.jsp#sidebar" class="toggle">Toggle</a>--%>
-    
+    <%--    <a href="${root}/index.jsp#sidebar" class="toggle">Toggle</a>--%>
+
     <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
     <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>
     <a href="${root}#sidebar" class="toggle">Toggle</a><a href="${root}#sidebar" class="toggle">Toggle</a>

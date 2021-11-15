@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: GRAM
@@ -10,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@ include file="../include/head.jsp"%>
+    <%@ include file="../include/head.jsp" %>
 </head>
 <body class="">
 
@@ -22,9 +23,48 @@
         <div class="inner">
 
             <!-- Header -->
-            <%@ include file="../include/header.jsp"%>
+            <%@ include file="../include/header.jsp" %>
 
             <!-- Banner -->
+
+            <c:if test="${!empty msg}">
+                <script>
+                    alert("${msg}");
+                </script>
+            </c:if>
+            <%--            <script type="text/javascript">--%>
+            <%--                $(document).ready(function () {--%>
+
+            <%--                    if("${key}")--%>
+            <%--                        $("#skey").val("${key}").prop("selected", true);--%>
+
+            <%--                    $("#mvRegisterBtn").click(function () {--%>
+            <%--                        location.href = "${root}/guestbook/register";--%>
+            <%--                    });--%>
+
+            <%--                    $("#searchBtn").click(function () {--%>
+            <%--                        var word = $("#sword").val();--%>
+            <%--                        if(word == "") {--%>
+            <%--                            alert("모든 목록 조회!!!");--%>
+            <%--                        }--%>
+            <%--                        $("#searchform").attr("action", "${root}/guestbook/list").submit();--%>
+            <%--                    });--%>
+
+            <%--                    $(".page-item").click(function() {--%>
+            <%--                        $("#pg").val(($(this).attr("data-pg")));--%>
+            <%--                        $("#pageform").attr("action", "${root}/guestbook/list").submit();--%>
+            <%--                    });--%>
+
+            <%--                    //file download--%>
+            <%--                    $('.filedown').click(function() {--%>
+            <%--                        // alert("원본 :  " + $(this).attr('ofile') + "      실제 :  " + $(this).attr('sfile'));--%>
+            <%--                        $(document).find('[name="sfolder"]').val($(this).attr('sfolder'));--%>
+            <%--                        $(document).find('[name="ofile"]').val($(this).attr('ofile'));--%>
+            <%--                        $(document).find('[name="sfile"]').val($(this).attr('sfile'));--%>
+            <%--                        $('#downform').attr('action', '${root}/guestbook/download').attr('method', 'get').submit();--%>
+            <%--                    });--%>
+            <%--                });--%>
+            <%--            </script>--%>
 
             <!-- Section -->
             <section>
@@ -42,61 +82,69 @@
                             <th>OTT</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>Item1</td>
-                            <td>Ante turpis integer aliquet porttitor.</td>
-                            <td>29.99</td>
-                            <td>Netflix</td>
-                        </tr>
-                        <tr>
-                            <td>Item2</td>
-                            <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                            <td>19.99</td>
-                            <td>Netflix</td>
-                        </tr>
-                        <tr>
-                            <td>Item3</td>
-                            <td> Morbi faucibus arcu accumsan lorem.</td>
-                            <td>29.99</td>
-                            <td>Netflix</td>
-                        </tr>
-                        <tr>
-                            <td>Item4</td>
-                            <td>Vitae integer tempus condimentum.</td>
-                            <td>19.99</td>
-                            <td>Netflix</td>
-                        </tr>
-                        <tr>
-                            <td>Item5</td>
-                            <td>Ante turpis integer aliquet porttitor.</td>
-                            <td>29.99</td>
-                            <td>Netflix</td>
-                        </tr>
-                        </tbody>
+                        <c:if test="${!empty movies}">
+                        <c:forEach var="movie" items="${movies}">
+                            <tbody>
+                            <tr>
+<%--                                <td>--%>
+<%--                                    <li>--%>
+<%--                                        <a href="${root}/index">--%>
+<%--                                                ${movie.title}--%>
+<%--                                        </a>--%>
+<%--                                    </li>--%>
+<%--                                </td>--%>
+                                <td>${movie.title}</td>
+                                <td>${movie.story.substring(0, 20)}...</td>
+<%--                                <td>${movie.genre.replaceAll("\[|\]|\'", "")}</td>--%>
+                                <td>${movie.genre.replaceAll("\'", "").replace('[','').replace(']','')}</td>
+                                <td>${movie.movie_id}</td>
+                            </tr>
+                            </tbody>
+                        </c:forEach>
 
                     </table>
+
+                    <ul class="pagination">
+                        <c:if test="${navigation.currentPage eq 1}">
+                            <li><span class="button disabled">Prev</span></li>
+                        </c:if>
+                        <c:if test="${navigation.currentPage ne 1}">
+                            <li><a href="search_movie_results?pg=${navigation.currentPage-1}" class="button">Prev</a></li>
+                        </c:if>
+
+                        <c:forEach var="i" begin="${navigation.startPage}" end="${navigation.endPage}">
+                            <c:if test="${navigation.currentPage eq i}">
+                                <li><a href="search_movie_results?pg=${navigation.currentPage}" class="page active">${navigation.currentPage}</a></li>
+                            </c:if>
+                            <c:if test="${navigation.currentPage ne i}">
+                                <li><a href="search_movie_results?pg=${i}" class="page">${i}</a></li>
+                            </c:if>
+                        </c:forEach>
+
+                        <c:if test="${navigation.currentPage ne navigation.totalPageCount}">
+                            <li><a href="search_movie_results?pg=${navigation.currentPage + 1}" class="button">Next</a></li>
+                        </c:if>
+                        <c:if test="${navigation.currentPage eq navigation.totalPageCount}">
+                            <li><span class="button disabled">Next</span></li>
+                        </c:if>
+
+                    </ul>
+
+                    </c:if>
+                    <c:if test="${empty movies}">
+
+                        <strong> Cannot found </strong>
+
+                    </c:if>
                 </div>
 
             </section>
-
-            <ul class="pagination">
-                <li><span class="button disabled">Prev</span></li>
-                <li><a href="search_movie_results/search_movie_results&amp;page=1.html#" class="page active">1</a></li>
-                <li><a href="search_movie_results/search_movie_results&amp;page=2.html#" class="page">2</a></li>
-                <li><a href="Search_movie_title%20-%20We%20Like%20The%20Movie.html#" class="page">3</a></li>
-                <li><span>…</span></li>
-                <li><a href="Search_movie_title%20-%20We%20Like%20The%20Movie.html#" class="page">8</a></li>
-                <li><a href="Search_movie_title%20-%20We%20Like%20The%20Movie.html#" class="page">9</a></li>
-                <li><a href="Search_movie_title%20-%20We%20Like%20The%20Movie.html#" class="page">10</a></li>
-                <li><a href="search_movie_results/search_movie_results&amp;page=2.html#" class="button">Next</a></li>
-            </ul>
 
         </div>
     </div>
 
     <!-- Sidebar -->
-    <%@ include file="../include/sidebar.jsp"%>
+    <%@ include file="../include/sidebar.jsp" %>
 
 </div>
 

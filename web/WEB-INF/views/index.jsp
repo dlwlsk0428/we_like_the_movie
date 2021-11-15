@@ -29,7 +29,6 @@
                 <div class="content">
                     <header>
                         <h1>
-                            <strong>${userName}</strong> <br>
                             Hi, We recommend you a best choice!<br>
                             by Your Own star data</h1>
 
@@ -49,14 +48,6 @@
     <%@ include file="include/sidebar.jsp"%>
 
 </div>
-
-<%--<!-- Scripts -->--%>
-<%--<script src="./home_files/jquery.min.js.다운로드"></script>--%>
-<%--<script src="./home_files/browser.min.js.다운로드"></script>--%>
-<%--<script src="./home_files/breakpoints.min.js.다운로드"></script>--%>
-<%--<script src="./home_files/util.js.다운로드"></script>--%>
-<%--<script src="./home_files/main.js.다운로드"></script>--%>
-
 
 </body>
 

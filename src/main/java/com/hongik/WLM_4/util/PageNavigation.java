@@ -12,6 +12,9 @@ public class PageNavigation {
     private int countPerPage;
     private String navigator;
 
+    private int startPage;
+    private int endPage;
+
     public boolean isStartRange() {
         return startRange;
     }
@@ -80,6 +83,13 @@ public class PageNavigation {
         this.countPerPage = countPerPage;
     }
 
+    public int getStartPage() {
+        return startPage;
+    }
+
+    public int getEndPage() {
+        return endPage;
+    }
     public void makeNavigator() {
         int startPage = (currentPage - 1) / naviSize * naviSize + 1;
         int endPage = startPage + naviSize - 1;
@@ -105,6 +115,8 @@ public class PageNavigation {
         buffer.append("			</li> \n");
         buffer.append("		</ul> \n");
         this.navigator = buffer.toString();
+        this.startPage = startPage;
+        this.endPage = endPage;
     }
 
 }

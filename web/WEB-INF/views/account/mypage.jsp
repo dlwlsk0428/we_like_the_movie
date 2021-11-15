@@ -25,6 +25,7 @@
             <%@ include file="../include/header.jsp"%>
 
             <!-- Banner -->
+            mypage
 
             <!-- Section -->
 

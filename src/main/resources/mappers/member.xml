@@ -4,8 +4,25 @@
 
 <mapper namespace="com.hongik.WLM_4.dao.MemberDao">
 
-    <select id="viewMember" parameterType="int" resultType="member">
-        SELECT userId, userName from users WHERE userId =#{userId}
+    <select id="viewMember" parameterType="String" resultType="member">
+        SELECT userId, userName from members WHERE userId =#{userId}
     </select>
+
+    <select id="login" parameterType="map" resultType="member">
+        select userName, userId
+        from members
+        where userId = #{userId} and userPwd = #{userPwd}
+    </select>
+
+    <insert id="registerMember" parameterType="member">
+        insert into members (userId, userName, userPwd)
+        values (#{userId}, #{userName}, #{userPwd})
+    </insert>
+
+    <delete id="deleteMember" parameterType="member">
+        delete
+        from members
+        where userId = #{userId}
+    </delete>
 
 </mapper>

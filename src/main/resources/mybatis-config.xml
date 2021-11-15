@@ -11,6 +11,9 @@
 
     <typeAliases>
         <typeAlias type="com.hongik.WLM_4.dto.MemberDto" alias="member"/>
+        <typeAlias type="com.hongik.WLM_4.dto.SearchDto" alias="search"/>
+        <typeAlias type="com.hongik.WLM_4.dto.RecommendDto" alias="recommend"/>
+        <typeAlias type="com.hongik.WLM_4.dto.GroupDto" alias="group"/>
     </typeAliases>
 
     <environments default="development">
@@ -27,5 +30,8 @@
 
     <mappers>
         <mapper resource="mappers/member.xml"/>
+        <mapper resource="mappers/search.xml"/>
+        <mapper resource="mappers/recommend.xml"/>
+        <mapper resource="mappers/group.xml"/>
     </mappers>
 </configuration>

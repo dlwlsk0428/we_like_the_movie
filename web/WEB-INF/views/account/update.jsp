@@ -36,13 +36,6 @@
 
 </div>
 
-<%--<!-- Scripts -->--%>
-<%--<script src="./home_files/jquery.min.js.다운로드"></script>--%>
-<%--<script src="./home_files/browser.min.js.다운로드"></script>--%>
-<%--<script src="./home_files/breakpoints.min.js.다운로드"></script>--%>
-<%--<script src="./home_files/util.js.다운로드"></script>--%>
-<%--<script src="./home_files/main.js.다운로드"></script>--%>
-
 
 </body>
 

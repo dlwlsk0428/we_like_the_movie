@@ -9,25 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class HomeController {
 
-    @Autowired
-    private MemberDao memberDao;
-
-    @Autowired
-    private MemberService memberService;
-
     @RequestMapping("/")
-    public String index(Model model) throws Exception {
-        int id = 1;
-        MemberDto memberDto = memberService.viewMember(id);
-        model.addAttribute("userName", memberDto.getUserName());
+    public String index() {
         return "index";
     }
-
-//    @RequestMapping("/index#sidebar")
-//    public String sidebar(){ return "index"; }
 
     @RequestMapping("/about/introduce")
     public String introduce(){
